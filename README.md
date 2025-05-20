@@ -48,7 +48,9 @@ Edit
 [GUI Text Area]
 Client: Halo server!
 Server: Hai client!
-⚙️ Penjelasan Teknis
+
+
+## ⚙️ Penjelasan Teknis
 TCP_SERVER.py
 Membuat socket TCP (socket.AF_INET, socket.SOCK_STREAM)
 
@@ -74,14 +76,14 @@ Menggunakan sendall() dan recv() dengan buffer 1024 byte
 
 Protokol TCP: memastikan koneksi andal, pesan sampai berurutan
 
-🛡️ Penanganan Error
+## 🛡️ Penanganan Error
 Koneksi gagal akan ditampilkan di GUI client
 
 Exception pada recv() ditangani agar thread tidak crash
 
 Gunakan try-except pada bagian socket dan thread
 
-✅ Dependencies
+## ✅ Dependencies
 Tidak perlu install paket eksternal. Semua menggunakan modul standar Python:
 
 socket
