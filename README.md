@@ -16,9 +16,9 @@ Aplikasi chat sederhana berbasis TCP menggunakan modul `socket`, `threading`, da
 
 ## ▶️ Running App
 
-### 1. Prasyarat
+### 1. Requirement
 
-Pastikan Python 3.x sudah terinstal di perangkat Anda.
+Pastikan Python 3.x sudah terinstal.
 
 ### 2. Jalankan Server
 
