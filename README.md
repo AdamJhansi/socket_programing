@@ -1,94 +1,120 @@
+
 # 🖧 TCP Chat App (Python Socket Programming + Tkinter GUI)
 
-A simple TCP-based chat application using Python's `socket`, `threading`, and `tkinter` modules. This project includes both **server** and **client** GUI applications that can send and receive messages in real-time using TCP sockets.
+A simple TCP-based chat application built with Python’s `socket`, `threading`, and `tkinter` modules. The project includes both **server** and **client** GUI programs that support real-time messaging over TCP sockets.
 
 ---
 
-## 📦 Fitur
+## 📦 Features
 
-- Komunikasi dua arah antara server dan client (TCP full-duplex)
-- GUI sederhana menggunakan `tkinter`
-- Log pesan ditampilkan di GUI dan juga di terminal
-- Multithreaded: pesan bisa diterima tanpa memblokir GUI
-- Kompatibel di sistem lokal (`localhost`)
+- 🔁 Full-duplex communication between server and client (TCP)
+- 🖥️ Simple GUI using `tkinter`
+- 📝 Message logs shown in both GUI and terminal
+- 🔄 Multithreaded: message receiving runs without blocking the GUI
+- 🧪 Works on local system (`localhost`)
 
 ---
 
-## ▶️ Cara Menjalankan Aplikasi
+## ▶️ How to Run
 
-### 1. Pastikan Python sudah terinstall (Python 3.x)
+### 1. Prerequisites
 
-### 2. Jalankan server terlebih dahulu:
+Ensure Python 3.x is installed on your system.
+
+### 2. Run the Server
 
 ```bash
 python TCP_SERVER.py
-GUI server akan muncul dan menunggu koneksi client.
 ```
 
+- A GUI window for the server will appear and wait for incoming client connections.
 
-3. Jalankan client di terminal lain:
-bash
-Copy
-Edit
+### 3. Run the Client (in another terminal)
+
+```bash
 python TCP_CLIENT.py
-GUI client akan muncul dan langsung mencoba koneksi ke server di 127.0.0.1:9000.
+```
 
-📷 Contoh Tampilan
-GUI Server
-vbnet
-Copy
-Edit
-[GUI Text Area]
+- The client GUI will open and attempt to connect to the server at `127.0.0.1:9000`.
+
+---
+
+## 🖼️ Example Screenshots
+
+### Server GUI
+```
+[Text Area Output]
 Server: Hai client!
 Client: Halo server!
-GUI Client
-vbnet
-Copy
-Edit
-[GUI Text Area]
+```
+
+### Client GUI
+```
+[Text Area Output]
 Client: Halo server!
 Server: Hai client!
+```
 
-## ⚙️ Penjelasan Teknis
-TCP_SERVER.py
-Membuat socket TCP (socket.AF_INET, socket.SOCK_STREAM)
+---
 
-Binding ke 127.0.0.1:9000 dan menunggu client
+## ⚙️ Technical Overview
 
-Menerima pesan dari client dalam thread terpisah
+### `TCP_SERVER.py`
+- Creates a TCP socket: `socket(AF_INET, SOCK_STREAM)`
+- Binds to `127.0.0.1:9000` and listens for client connections
+- Handles incoming messages in a separate thread
+- Sends messages through the GUI (Entry + Send button)
+- Logs messages in GUI (ScrolledText) and terminal
 
-Mengirim pesan lewat GUI (entry + tombol Kirim)
+### `TCP_CLIENT.py`
+- Connects to server at `127.0.0.1:9000`
+- Starts a thread to continuously receive messages from the server
+- Sends messages through the GUI (Entry + Send button)
+- Logs messages in GUI and terminal
 
-Log ditampilkan di GUI (ScrolledText) dan console (print())
+### Communication Protocol
+- Uses `sendall()` and `recv()` with a 1024-byte buffer
+- TCP ensures reliable and ordered delivery of messages
 
-TCP_CLIENT.py
-Menginisiasi koneksi ke server 127.0.0.1:9000
+---
 
-Setelah terhubung, mulai thread untuk mendengarkan pesan dari server
+## 🛡️ Error Handling
 
-Kirim pesan lewat GUI client (entry + tombol Kirim)
+- Connection failures are shown in the client GUI
+- Exceptions during `recv()` are caught to prevent thread crashes
+- All socket and thread operations are wrapped in `try-except` blocks
 
-Log juga ditampilkan di GUI dan console
-
-Komunikasi
-Menggunakan sendall() dan recv() dengan buffer 1024 byte
-
-Protokol TCP: memastikan koneksi andal, pesan sampai berurutan
-
-## 🛡️ Penanganan Error
-Koneksi gagal akan ditampilkan di GUI client
-
-Exception pada recv() ditangani agar thread tidak crash
-
-Gunakan try-except pada bagian socket dan thread
+---
 
 ## ✅ Dependencies
-Tidak perlu install paket eksternal. Semua menggunakan modul standar Python:
 
-socket
+All modules used are part of Python’s standard library — no external installation needed:
 
-threading
+- `socket`
+- `threading`
+- `tkinter`
+- `tkinter.scrolledtext`
 
-tkinter
+---
 
-tkinter.scrolledtext
+## 📁 Project Structure
+
+```
+📦 tcp_chat_app/
+├── TCP_SERVER.py      # Server-side GUI app
+├── TCP_CLIENT.py      # Client-side GUI app
+└── README.md          # Project documentation
+```
+
+---
+
+## 📌 Notes
+
+- This application is intended for **local use only** (`127.0.0.1`). To use over a network, configure IP and firewall accordingly.
+- Great for learning the basics of **socket programming** and **multithreaded GUI apps** in Python.
+
+---
+
+## 🧑‍💻 Author
+
+Created with ❤️ using Python and Tkinter.
