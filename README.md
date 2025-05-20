@@ -14,19 +14,6 @@ A simple TCP-based chat application using Python's `socket`, `threading`, and `t
 
 ---
 
-## 🗂️ Struktur Project
-
-tcp_chat_app/
-├── TCP_SERVER.py # GUI aplikasi server
-├── TCP_CLIENT.py # GUI aplikasi client
-└── README.md # Dokumentasi ini
-
-yaml
-Copy
-Edit
-
----
-
 ## ▶️ Cara Menjalankan Aplikasi
 
 ### 1. Pastikan Python sudah terinstall (Python 3.x)
@@ -36,6 +23,8 @@ Edit
 ```bash
 python TCP_SERVER.py
 GUI server akan muncul dan menunggu koneksi client.
+```
+
 
 3. Jalankan client di terminal lain:
 bash
